@@ -1,2 +1,3 @@
 *.csv
 stocks/functions/secrets.py
+*__pycache__
