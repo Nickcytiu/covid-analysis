@@ -4,7 +4,6 @@ import sqlalchemy
 
 # Travel, Aerospace, Retail, Ecommerce, Automotive, Transportation, Entertainment
 
-
 trav_list = ["AC.TRT", "UAL", "DAL"]
 aero_list = ["BA", "AIRA.FRK", "BBD-A.TRT"]
 ret_list = ["L.TRT", "COST", "WMT"]
@@ -24,4 +23,4 @@ for stock_list, industry in zip(stock_lists, industry_names):
     tables = write_to_db(stock_list, industry, path)
     make_industry_table(tables, stock_list, industry)
 
-write_csv_to_db("VIX_History")
+write_csv_to_db()
