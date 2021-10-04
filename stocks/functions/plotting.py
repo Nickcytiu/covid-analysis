@@ -41,3 +41,18 @@ def create_normalize_plots(industry):
 
     plt.legend(loc = "best")
     plt.show()
+
+def create_VIX_plot():
+    engine = sqlalchemy.create_engine(f"mysql+pymysql://root:{password}@localhost:3306/covid")
+    df = pd.read_sql("SELECT * FROM stocks_VIX_updated",engine)
+    plt.figure(figsize=(16,7))
+    for col in df.columns[1:]:
+        scaled = f"{col}_scaled"
+        df[scaled] = (df[col] - df[col].mean()) / df[col].std()
+    for col in df.columns:
+        if '_scaled' in col:
+            plt.xlabel("Date")
+            plt.ylabel("z-score")
+            plt.title("Volatility Index")
+            plt.plot(df.DATE, df[col])
+    plt.show()

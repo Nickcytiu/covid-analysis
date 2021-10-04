@@ -55,8 +55,8 @@ def make_industry_table(tables, stock_list, industry, date_cutoff='2020-01-01'):
     print(f'Joining stocks in {industry} industry to {table_name} in db')
     main.to_sql(table_name, engine, if_exists='replace')
 
-def write_csv_to_db(name):
-    df = pd.read_csv(f"{name}.csv")
+def write_csv_to_db():
+    df = pd.read_csv("/Users/nicktiu/Desktop/Data Analytics/covid-analysis/stocks/stock_csv/VIX_History.csv")
     df["DATE"] = pd.to_datetime(df["DATE"], format="%m/%d/%Y")
     engine = sqlalchemy.create_engine(f"mysql+pymysql://root:{password}@localhost:3306/covid")
-    df.to_sql(f"stocks_{name}", engine, if_exists='replace')
+    df.to_sql("stocks_VIX", engine, if_exists='replace')
