@@ -3,3 +3,4 @@ stocks/functions/secrets.py
 *__pycache__
 .DS_Store
 .ipynb_checkpoints
+covid/functions/db_password.py
